@@ -78,6 +78,7 @@ export function loadFeaturesXhr(url, format, success, failure) {
             source = xhr.responseXML;
             if (!source) {
               source = new DOMParser().parseFromString(xhr.responseText, 'application/xml');
+              ol.kml_source = source;
             }
           } else if (type == FormatType.ARRAY_BUFFER) {
             source = /** @type {ArrayBuffer} */ (xhr.response);
